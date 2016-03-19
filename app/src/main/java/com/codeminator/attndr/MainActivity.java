@@ -4,8 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.codeminator.attndr.attendance.DistanceBeaconActivity;
 import com.codeminator.attndr.attendance.ListBeaconsActivity;
+import com.codeminator.attndr.reports.SummaryActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -13,8 +13,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        startListBeaconsActivity(DistanceBeaconActivity.class.getName());
-
+//        startListBeaconsActivity(DistanceBeaconActivity.class.getName());
+        Intent intent = new Intent(MainActivity.this, SummaryActivity.class);
+        startActivity(intent);
     }
 
     private void startListBeaconsActivity(String extra) {

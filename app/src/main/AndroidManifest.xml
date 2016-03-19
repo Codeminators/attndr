@@ -3,7 +3,10 @@
     package="com.codeminator.attndr">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-feature android:name="android.hardware.bluetooth_le" android:required="true"/>
+
+    <uses-feature
+        android:name="android.hardware.bluetooth_le"
+        android:required="true" />
 
     <application
         android:allowBackup="true"
@@ -20,22 +23,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".AttendanceActivity" />
-
         <activity
             android:name=".attendance.ListBeaconsActivity"
             android:label="Present"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name=".attendance.DistanceBeaconActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".attendance.DistanceBeaconActivity"
             android:label="Distance Demo"
-            android:screenOrientation="portrait"/>
-
+            android:screenOrientation="portrait" />
         <activity android:name=".ReportActivity" />
         <activity
             android:name=".reports.GraphDetailActivity"
             android:theme="@style/AppThemeNoActionBar" />
+        <activity android:name=".reports.SummaryActivity"></activity>
     </application>
 
 </manifest>
