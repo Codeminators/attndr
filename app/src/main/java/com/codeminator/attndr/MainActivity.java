@@ -18,6 +18,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+//        startListBeaconsActivity(DistanceBeaconActivity.class.getName());
+//        Intent intent = new Intent(MainActivity.this, SummaryActivity.class);
+//        startActivity(intent);
+
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewPager);
         assert viewPager != null;
         viewPager.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
