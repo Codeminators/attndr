@@ -10,17 +10,18 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/AppThemeNoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AttendanceActivity" />
-        <activity android:name=".ReportActivity">
 
-        </activity>
+        <activity android:name=".AttendanceActivity" />
+
         <activity
             android:name=".ListBeaconsActivity"
             android:label="Present"
@@ -30,7 +31,10 @@
             android:label="Distance Demo"
             android:screenOrientation="portrait"/>
 
-
+        <activity android:name=".ReportActivity" />
+        <activity
+            android:name=".reports.GraphDetailActivity"
+            android:theme="@style/AppThemeNoActionBar"/>
     </application>
 
 </manifest>
