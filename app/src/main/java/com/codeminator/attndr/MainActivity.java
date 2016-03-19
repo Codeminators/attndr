@@ -9,6 +9,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.codeminator.attndr.attendance.ListBeaconsActivity;
 
@@ -50,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button takeAttendace = (Button) findViewById(R.id.button);
+        ImageView takeAttendace = (ImageView) findViewById(R.id.imageView4);
         assert takeAttendace != null;
         takeAttendace.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,4 +82,6 @@ public class MainActivity extends AppCompatActivity {
     }
     public static Person p4 = new Person();
     public static Person p5 = new Person();
+
+
 }

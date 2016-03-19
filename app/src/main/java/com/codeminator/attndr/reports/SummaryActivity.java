@@ -1,5 +1,6 @@
 package com.codeminator.attndr.reports;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -8,10 +9,13 @@ import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.RelativeSizeSpan;
 import android.text.style.StyleSpan;
+import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import com.codeminator.attndr.MainActivity;
 import com.codeminator.attndr.R;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.data.Entry;
@@ -28,6 +32,7 @@ public class SummaryActivity extends AppCompatActivity {
     protected ArrayList<String> mParties = new ArrayList<>();
     private SeekBar mSeekBarX, mSeekBarY;
     private TextView tvX, tvY;
+    Button details;
 
     private Typeface tf;
 
@@ -45,11 +50,31 @@ public class SummaryActivity extends AppCompatActivity {
         mChart.setUsePercentValues(true);
 //        mChart.setHoleColorTransparent(true);
 
-        mChart.setCenterText("40% Present\n60% Absent");
+        int a = 0;
+        if(MainActivity.p1.present)
+            a++;
+        if(MainActivity.p2.present)
+            a++;
+        if(MainActivity.p3.present)
+            a++;
+        if(MainActivity.p4.present)
+            a++;
+        if(MainActivity.p5.present)
+            a++;
+        int b = a*100/5;
+        int c = 100 -b;
+        String title = b+"% Present \n" + c + "%Absent";
+        mChart.setCenterText(title);
         setData(1, 100);
         mChart.setCenterTextSizePixels(50);
+        details.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(SummaryActivity.this, GraphDetailActivity.class);
+                startActivity(i);
+            }
+        });
     }
-
 
     private SpannableString generateCenterSpannableText() {
 
