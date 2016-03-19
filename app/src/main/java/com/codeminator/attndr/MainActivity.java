@@ -1,10 +1,16 @@
 package com.codeminator.attndr;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
+
+import com.codeminator.attndr.attendance.DistanceBeaconActivity;
+import com.codeminator.attndr.attendance.ListBeaconsActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -37,5 +43,28 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        Button takeAttendace = (Button) findViewById(R.id.button);
+        assert takeAttendace != null;
+        takeAttendace.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startListBeaconsActivity(DistanceBeaconActivity.class.getName());
+            }
+        });
+
+        final Button reports = (Button) findViewById(R.id.button2);
+        assert reports != null;
+        reports.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(reports.getContext(), ReportActivity.class));
+            }
+        });
+    }
+
+    private void startListBeaconsActivity(String extra) {
+        Intent intent = new Intent(MainActivity.this, ListBeaconsActivity.class);
+        intent.putExtra(ListBeaconsActivity.EXTRAS_TARGET_ACTIVITY, extra);
+        startActivity(intent);
     }
 }

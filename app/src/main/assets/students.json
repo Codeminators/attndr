@@ -1,0 +1,74 @@
+{
+  "students": [
+    {
+      "name": "Naman Dwivedi",
+      "major": "57887",
+      "minor": "7000",
+      "rollno": "",
+      "dates_present": []
+    },
+    {
+      "name": "Raghav Apoorv",
+      "major": "14718",
+      "minor": "62967",
+      "rollno": "",
+      "dates_present": []
+    },
+    {
+      "name": "Prempal Singh",
+      "major": "22686",
+      "minor": "47279",
+      "rollno": "",
+      "dates_present": []
+    },
+    {
+      "name": "Pranav Gulati",
+      "major": "20974",
+      "minor": "20212",
+      "rollno": "",
+      "dates_present": []
+    },
+    {
+      "name": "Naman Dwivedi",
+      "major": "47633",
+      "minor": "13930",
+      "rollno": "",
+      "dates_present": []
+    },
+    {
+      "name": "Another Student",
+      "major": "",
+      "minor": "",
+      "rollno": "",
+      "dates_present": []
+    },
+    {
+      "name": "Look, Another Student",
+      "major": "",
+      "minor": "",
+      "rollno": "",
+      "dates_present": []
+    },
+    {
+      "name": "Deadpool",
+      "major": "",
+      "minor": "",
+      "rollno": "",
+      "dates_present": []
+    },
+    {
+      "name": "Another Deadpool",
+      "major": "",
+      "minor": "",
+      "rollno": "",
+      "dates_present": []
+    },
+    {
+      "name": "Raghav Apoorv",
+      "major": "59729",
+      "minor": "58232",
+      "rollno": "",
+      "dates_present": []
+    }
+  ]
+}
