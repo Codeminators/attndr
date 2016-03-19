@@ -20,7 +20,7 @@ public class ReportActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_report);
-        Intent i = new Intent(ReportActivity. this, SemesterActivity.class);
+        Intent i = new Intent(ReportActivity.this, SemesterActivity.class);
         startActivity(i);
         Button sendAlert = (Button) findViewById(R.id.sendAlert);
 
