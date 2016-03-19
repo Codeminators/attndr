@@ -28,10 +28,6 @@
             android:label="Present"
             android:screenOrientation="portrait"/>
 
-        <activity android:name=".attendance.DistanceBeaconActivity"
-            android:label="Distance Demo"
-            android:screenOrientation="portrait"/>
-
         <activity android:name=".ReportActivity" />
         <activity
             android:name=".reports.GraphDetailActivity"
