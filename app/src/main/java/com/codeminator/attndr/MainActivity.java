@@ -3,6 +3,7 @@ package com.codeminator.attndr;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -60,7 +61,12 @@ public class MainActivity extends AppCompatActivity {
         reports.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(reports.getContext(), ReportActivity.class));
+//                startActivity(new Intent(reports.getContext(), ReportActivity.class));
+                FragmentManager fm = getSupportFragmentManager();
+
+                CourseDialog editNameDialog = new CourseDialog();
+
+                editNameDialog.show(fm, "dialog");
             }
         });
     }
