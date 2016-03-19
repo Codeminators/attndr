@@ -39,15 +39,14 @@ public class SemesterActivity extends AppCompatActivity {
         p3.daysPresent = "Days Present = 18";
         p3.detention = "1";
         personList.add(p3);
-        p4.name = "Pranav Gulati";
+        p4.name = "Shreya Sharma";
         p4.daysPresent = "Days Present = 24";
         p4.detention = "0";
         personList.add(p4);
-        p5.name = "Shubham Kumar";
+        p5.name = "Puja Mathur";
         p5.daysPresent = "Days Present = 17";
         p5.detention = "1";
         personList.add(p5);
-
 
         SemesterAdapter adapter = new SemesterAdapter(personList, this);
         rv.setAdapter(adapter);
