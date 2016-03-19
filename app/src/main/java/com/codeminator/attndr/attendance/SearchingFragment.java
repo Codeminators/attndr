@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.codeminator.attndr.R;
@@ -22,6 +23,7 @@ import com.estimote.sdk.SystemRequirementsChecker;
 import com.skyfishjy.library.RippleBackground;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -38,6 +40,8 @@ public class SearchingFragment extends Fragment {
     TextView status, beaconNumber;
 
     List<Beacon> apneBeacon;
+    private BeaconListAdapter adapter;
+
 
     int beaconSize = 0;
 
@@ -64,6 +68,12 @@ public class SearchingFragment extends Fragment {
             }
         });
 
+        adapter = new BeaconListAdapter(getActivity());
+
+        final ListView list = (ListView) rootView.findViewById(R.id.device_list);
+        list.setAdapter(adapter);
+
+
         rippleBackground.startRippleAnimation();
 
         fab = (FloatingActionButton) rootView.findViewById(R.id.fab);
@@ -71,6 +81,13 @@ public class SearchingFragment extends Fragment {
         beaconNumber = (TextView) rootView.findViewById(R.id.beacon_number);
 
         apneBeacon = new ArrayList<Beacon>();
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                doAnimation();
+            }
+        });
 
         return rootView;
     }
@@ -177,6 +194,8 @@ public class SearchingFragment extends Fragment {
                                 foundDevice(i);
                             }
 
+                            adapter.replaceWith(beacons);
+
                         }
                     }
                 });
@@ -219,12 +238,17 @@ public class SearchingFragment extends Fragment {
     }
 
     private void startScanning() {
+        adapter.replaceWith(Collections.<Beacon>emptyList());
         beaconManager.connect(new BeaconManager.ServiceReadyCallback() {
             @Override
             public void onServiceReady() {
                 beaconManager.startRanging(ALL_ESTIMOTE_BEACONS_REGION);
             }
         });
+    }
+
+    private void doAnimation() {
+
     }
 
 }
