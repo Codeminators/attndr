@@ -29,7 +29,7 @@ import java.util.List;
  */
 public class SearchingFragment extends Fragment {
 
-    private ImageView foundDevice;
+    private ImageView found1, found2, found3, found4, found5, found6;
 
     private static final Region ALL_ESTIMOTE_BEACONS_REGION = new Region("rid", null, null, null);
 
@@ -37,12 +37,21 @@ public class SearchingFragment extends Fragment {
     FloatingActionButton fab;
     TextView status, beaconNumber;
 
+    List<Beacon> apneBeacon;
+
+    int beaconSize = 0;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_searching, container, false);
 
-        foundDevice = (ImageView) rootView.findViewById(R.id.foundDevice);
+        found1 = (ImageView) rootView.findViewById(R.id.foundDevice1);
+        found2 = (ImageView) rootView.findViewById(R.id.foundDevice2);
+        found3 = (ImageView) rootView.findViewById(R.id.foundDevice3);
+        found4 = (ImageView) rootView.findViewById(R.id.foundDevice4);
+        found5 = (ImageView) rootView.findViewById(R.id.foundDevice5);
+        found6 = (ImageView) rootView.findViewById(R.id.foundDevice5);
 
         final RippleBackground rippleBackground = (RippleBackground) rootView.findViewById(R.id.content);
         ImageView imageView = (ImageView) rootView.findViewById(R.id.centerImage);
@@ -61,20 +70,72 @@ public class SearchingFragment extends Fragment {
         status = (TextView) rootView.findViewById(R.id.status);
         beaconNumber = (TextView) rootView.findViewById(R.id.beacon_number);
 
+        apneBeacon = new ArrayList<Beacon>();
+
         return rootView;
     }
 
-    private void foundDevice() {
+    private void foundDevice(int id) {
         AnimatorSet animatorSet = new AnimatorSet();
         animatorSet.setDuration(400);
         animatorSet.setInterpolator(new AccelerateDecelerateInterpolator());
-        ArrayList<Animator> animatorList = new ArrayList<Animator>();
-        ObjectAnimator scaleXAnimator = ObjectAnimator.ofFloat(foundDevice, "ScaleX", 0f, 1.2f, 1f);
-        animatorList.add(scaleXAnimator);
-        ObjectAnimator scaleYAnimator = ObjectAnimator.ofFloat(foundDevice, "ScaleY", 0f, 1.2f, 1f);
-        animatorList.add(scaleYAnimator);
-        animatorSet.playTogether(animatorList);
-        foundDevice.setVisibility(View.VISIBLE);
+
+        switch (id) {
+            case 1:
+                ArrayList<Animator> animatorList = new ArrayList<Animator>();
+                ObjectAnimator scaleXAnimator = ObjectAnimator.ofFloat(found1, "ScaleX", 0f, 1.2f, 1f);
+                animatorList.add(scaleXAnimator);
+                ObjectAnimator scaleYAnimator = ObjectAnimator.ofFloat(found1, "ScaleY", 0f, 1.2f, 1f);
+                animatorList.add(scaleYAnimator);
+                animatorSet.playTogether(animatorList);
+                found1.setVisibility(View.VISIBLE);
+                break;
+            case 2:
+                ArrayList<Animator> animatorList2 = new ArrayList<Animator>();
+                ObjectAnimator scaleXAnimator2 = ObjectAnimator.ofFloat(found2, "ScaleX", 0f, 1.2f, 1f);
+                animatorList2.add(scaleXAnimator2);
+                ObjectAnimator scaleYAnimator2 = ObjectAnimator.ofFloat(found2, "ScaleY", 0f, 1.2f, 1f);
+                animatorList2.add(scaleYAnimator2);
+                animatorSet.playTogether(animatorList2);
+                found2.setVisibility(View.VISIBLE);
+                break;
+            case 3:
+                ArrayList<Animator> animatorList3 = new ArrayList<Animator>();
+                ObjectAnimator scaleXAnimator3 = ObjectAnimator.ofFloat(found3, "ScaleX", 0f, 1.2f, 1f);
+                animatorList3.add(scaleXAnimator3);
+                ObjectAnimator scaleYAnimator3 = ObjectAnimator.ofFloat(found3, "ScaleY", 0f, 1.2f, 1f);
+                animatorList3.add(scaleYAnimator3);
+                animatorSet.playTogether(animatorList3);
+                found3.setVisibility(View.VISIBLE);
+                break;
+            case 4:
+                ArrayList<Animator> animatorList4 = new ArrayList<Animator>();
+                ObjectAnimator scaleXAnimator4 = ObjectAnimator.ofFloat(found4, "ScaleX", 0f, 1.2f, 1f);
+                animatorList4.add(scaleXAnimator4);
+                ObjectAnimator scaleYAnimator4 = ObjectAnimator.ofFloat(found5, "ScaleY", 0f, 1.2f, 1f);
+                animatorList4.add(scaleYAnimator4);
+                animatorSet.playTogether(animatorList4);
+                found4.setVisibility(View.VISIBLE);
+                break;
+            case 5:
+                ArrayList<Animator> animatorList5 = new ArrayList<Animator>();
+                ObjectAnimator scaleXAnimator5 = ObjectAnimator.ofFloat(found5, "ScaleX", 0f, 1.2f, 1f);
+                animatorList5.add(scaleXAnimator5);
+                ObjectAnimator scaleYAnimator5 = ObjectAnimator.ofFloat(found5, "ScaleY", 0f, 1.2f, 1f);
+                animatorList5.add(scaleYAnimator5);
+                animatorSet.playTogether(animatorList5);
+                found5.setVisibility(View.VISIBLE);
+                break;
+            case 6:
+                ArrayList<Animator> animatorList6 = new ArrayList<Animator>();
+                ObjectAnimator scaleXAnimator6 = ObjectAnimator.ofFloat(found6, "ScaleX", 0f, 1.2f, 1f);
+                animatorList6.add(scaleXAnimator6);
+                ObjectAnimator scaleYAnimator6 = ObjectAnimator.ofFloat(found6, "ScaleY", 0f, 1.2f, 1f);
+                animatorList6.add(scaleYAnimator6);
+                animatorSet.playTogether(animatorList6);
+                found6.setVisibility(View.VISIBLE);
+                break;
+        }
         animatorSet.start();
     }
 
@@ -86,7 +147,37 @@ public class SearchingFragment extends Fragment {
                 getActivity().runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        beaconNumber.setText(beacons.size() + " beacons found");
+                        apneBeacon.clear();
+
+                        for (int b = 0; b < beacons.size(); b++) {
+                            apneBeacon.add(beacons.get(b));
+                        }
+
+                        for (int a = 0; a < beacons.size(); a++) {
+                            Beacon beacon = beacons.get(a);
+//                            if ((beacon.getMajor() == 57887 && beacon.getMinor() == 7000) ||
+//                                    (beacon.getMajor() == 14718 && beacon.getMinor() == 62967) ||
+//                                    (beacon.getMajor() == 22686 && beacon.getMinor() == 47279) ||
+//                                    (beacon.getMajor() == 20974 && beacon.getMinor() == 20212) ||
+//                                    (beacon.getMajor() == 59729 && beacon.getMinor() == 58232) ||
+//                                    (beacon.getMajor() == 47633 && beacon.getMinor() == 13930)) {
+//
+//                                apneBeacon.add(beacon);
+//
+//                            }
+                            if (beacon.getMajor() == 55957 && beacon.getMinor() == 34167) {
+                                apneBeacon.remove(beacon);
+                            }
+                        }
+                        if (apneBeacon.size() > beaconSize) {
+                            beaconSize = apneBeacon.size();
+                            beaconNumber.setText(apneBeacon.size() + " beacons found");
+
+                            for (int i = 1; i <= beaconSize; i++) {
+                                foundDevice(i);
+                            }
+
+                        }
                     }
                 });
             }
