@@ -43,4 +43,31 @@
         android:layout_alignTop="@+id/imageView4"
         android:layout_centerHorizontal="true" />
 
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/switch1"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Class"
+        android:id="@+id/textView5"
+        android:gravity="center"
+        android:layout_alignParentTop="true"
+        android:layout_toStartOf="@+id/switch1"
+        android:layout_alignBottom="@+id/switch1" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bus"
+        android:gravity="center"
+        android:id="@+id/textView6"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/switch1"
+        android:layout_alignBottom="@+id/switch1" />
+
 </RelativeLayout>

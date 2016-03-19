@@ -24,7 +24,7 @@ public class ReportActivity extends AppCompatActivity {
         startActivity(i);
         Button sendAlert = (Button) findViewById(R.id.sendAlert);
 
-        String url = "";
+        String url = "http://192.168.43.130/send_sms?query=Your%20ward%20has%20low%20attendance.";
 
         JsonObjectRequest loginRequest = new JsonObjectRequest(Request.Method.GET, url,
                 new Response.Listener<JSONObject>() {
