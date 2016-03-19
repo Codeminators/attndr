@@ -1,4 +1,4 @@
-package com.codeminator.attndr;
+package com.codeminator.attndr.attendance;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -6,6 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+
+import com.codeminator.attndr.R;
 import com.estimote.sdk.Beacon;
 import com.estimote.sdk.Utils;
 import java.util.ArrayList;

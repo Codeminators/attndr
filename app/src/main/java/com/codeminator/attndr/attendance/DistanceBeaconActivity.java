@@ -1,10 +1,11 @@
-package com.codeminator.attndr;
+package com.codeminator.attndr.attendance;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.Toast;
 
+import com.codeminator.attndr.R;
 import com.estimote.sdk.Beacon;
 import com.estimote.sdk.BeaconManager;
 import com.estimote.sdk.Region;

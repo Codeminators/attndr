@@ -1,10 +1,12 @@
-package com.codeminator.attndr;
+package com.codeminator.attndr.attendance;
 
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.View;
+
+import com.codeminator.attndr.R;
 
 
 public class DistanceBackgroundView extends View {

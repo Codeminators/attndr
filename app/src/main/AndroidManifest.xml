@@ -23,11 +23,11 @@
         <activity android:name=".AttendanceActivity" />
 
         <activity
-            android:name=".ListBeaconsActivity"
+            android:name=".attendance.ListBeaconsActivity"
             android:label="Present"
             android:screenOrientation="portrait"/>
 
-        <activity android:name=".DistanceBeaconActivity"
+        <activity android:name=".attendance.DistanceBeaconActivity"
             android:label="Distance Demo"
             android:screenOrientation="portrait"/>
 
