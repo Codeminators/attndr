@@ -33,6 +33,7 @@ public class SummaryActivity extends AppCompatActivity {
     private SeekBar mSeekBarX, mSeekBarY;
     private TextView tvX, tvY;
     Button details;
+    public static int a,b,c;
 
     private Typeface tf;
 
@@ -50,7 +51,7 @@ public class SummaryActivity extends AppCompatActivity {
         mChart.setUsePercentValues(true);
 //        mChart.setHoleColorTransparent(true);
 
-        int a = 0;
+        a = 0;
         if(MainActivity.p1.present)
             a++;
         if(MainActivity.p2.present)
@@ -61,9 +62,9 @@ public class SummaryActivity extends AppCompatActivity {
             a++;
         if(MainActivity.p5.present)
             a++;
-        int b = a*100/5;
-        int c = 100 -b;
-        String title = b+"% Present \n" + c + "%Absent";
+        b = a*100/5;
+        c = 100 -b;
+        String title = c+"% Present \n" + b + "%Absent";
         mChart.setCenterText(title);
         setData(1, 100);
         mChart.setCenterTextSizePixels(50);
@@ -106,8 +107,8 @@ public class SummaryActivity extends AppCompatActivity {
 //        for (int i = 0; i < count + 1; i++) {
 //            yVals1.add(new Entry((float) (Math.random() * mult) + mult / 5, i));
 //        }
-        yVals1.add(new Entry((float) 60.0, 0));
-        yVals1.add(new Entry((float) 40.0, 1));
+        yVals1.add(new Entry((float) b, 0));
+        yVals1.add(new Entry((float) c, 1));
 
         ArrayList<String> xVals = new ArrayList<String>();
 
