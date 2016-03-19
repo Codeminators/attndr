@@ -17,7 +17,6 @@ public class GraphDetailActivity extends AppCompatActivity {
 
     HollyViewPager hollyViewPager;
 
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
