@@ -16,7 +16,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
-            android:theme="@style/AppThemeNoActionBar">
+            android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,10 +28,7 @@
             android:name=".attendance.ListBeaconsActivity"
             android:label="Present"
             android:screenOrientation="portrait" />
-        <activity
-            android:name=".attendance.DistanceBeaconActivity"
-            android:label="Distance Demo"
-            android:screenOrientation="portrait" />
+
         <activity android:name=".ReportActivity" />
         <activity
             android:name=".reports.GraphDetailActivity"
