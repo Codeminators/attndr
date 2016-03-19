@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.codeminator.attndr">
 
+    <uses-feature android:name="android.hardware.bluetooth_le" android:required="true"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -16,7 +18,19 @@
             </intent-filter>
         </activity>
         <activity android:name=".AttendanceActivity" />
-        <activity android:name=".ReportActivity"></activity>
+        <activity android:name=".ReportActivity">
+
+        </activity>
+        <activity
+            android:name=".ListBeaconsActivity"
+            android:label="Present"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".DistanceBeaconActivity"
+            android:label="Distance Demo"
+            android:screenOrientation="portrait"/>
+
+
     </application>
 
 </manifest>
