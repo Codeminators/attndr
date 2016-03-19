@@ -8,9 +8,15 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import com.codeminator.attndr.MainActivity;
+import com.codeminator.attndr.Person;
 import com.codeminator.attndr.R;
 import com.github.florent37.hollyviewpager.HollyViewPagerBus;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by naman on 19/03/16.
@@ -18,6 +24,17 @@ import com.github.florent37.hollyviewpager.HollyViewPagerBus;
 public class AttendanceListFragment extends Fragment {
 
     RecyclerView recyclerView;
+    List<Person> personList = new ArrayList<>();
+
+    public static AttendanceListFragment newInstance(ArrayList<Integer> presentList, ArrayList<Integer> absentList, int page) {
+        AttendanceListFragment fragment = new AttendanceListFragment();
+        Bundle args = new Bundle();
+        args.putIntegerArrayList("presentarray", presentList);
+        args.putInt("page", page);
+        args.putIntegerArrayList("absentarray", absentList);
+        fragment.setArguments(args);
+        return fragment;
+    }
 
     @Nullable
     @Override
@@ -31,10 +48,56 @@ public class AttendanceListFragment extends Fragment {
 
         HollyViewPagerBus.registerRecyclerView(getActivity(), recyclerView);
 
+        if (getArguments().getInt("page") == 0) {
+            ArrayList<Integer> absentList = getArguments().getIntegerArrayList("absentarray");
+
+            for (Integer integer : absentList) {
+                switch (integer) {
+                    case 1:
+                        personList.add(MainActivity.p1);
+                        break;
+                    case 2:
+                        personList.add(MainActivity.p2);
+                        break;
+                    case 3:
+                        personList.add(MainActivity.p3);
+                        break;
+                    case 4:
+                        personList.add(MainActivity.p4);
+                        break;
+                    case 5:
+                        personList.add(MainActivity.p5);
+                        break;
+                }
+            }
+        } else {
+            ArrayList<Integer> presentList = getArguments().getIntegerArrayList("presentarray");
+
+            for (Integer integer : presentList) {
+                switch (integer) {
+                    case 1:
+                        personList.add(MainActivity.p1);
+                        break;
+                    case 2:
+                        personList.add(MainActivity.p2);
+                        break;
+                    case 3:
+                        personList.add(MainActivity.p3);
+                        break;
+                    case 4:
+                        personList.add(MainActivity.p4);
+                        break;
+                    case 5:
+                        personList.add(MainActivity.p5);
+                        break;
+                }
+            }
+        }
+
         return rootView;
     }
 
-    public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+    public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
 
         protected static final int TYPE_HEADER = 0;
         protected static final int TYPE_CELL = 1;
@@ -50,7 +113,7 @@ public class AttendanceListFragment extends Fragment {
         }
 
         @Override
-        public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int type) {
+        public RecyclerAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int type) {
             View view;
             switch (type) {
                 case TYPE_HEADER:
@@ -60,18 +123,33 @@ public class AttendanceListFragment extends Fragment {
                     view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.content_card_attendance_list, viewGroup, false);
                     break;
             }
-            return new RecyclerView.ViewHolder(view) {
-            };
+            return new ViewHolder(view);
         }
 
         @Override
-        public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int i) {
-
+        public void onBindViewHolder(RecyclerAdapter.ViewHolder viewHolder, int i) {
+            if (i > 0) {
+                viewHolder.name.setText(personList.get(i-1).name);
+                viewHolder.rollNo.setText(personList.get(i-1).rollNo);
+            }
         }
 
         @Override
         public int getItemCount() {
-            return 15;
+            return personList.size();
+        }
+
+        public class ViewHolder extends RecyclerView.ViewHolder {
+
+            protected TextView name, rollNo;
+
+            public ViewHolder(View itemView) {
+                super(itemView);
+
+                name = (TextView) itemView.findViewById(R.id.student_name);
+                rollNo = (TextView) itemView.findViewById(R.id.student_rollno);
+
+            }
         }
     }
 }

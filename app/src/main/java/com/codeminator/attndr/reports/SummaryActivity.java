@@ -68,6 +68,8 @@ public class SummaryActivity extends AppCompatActivity {
         mChart.setCenterText(title);
         setData(1, 100);
         mChart.setCenterTextSizePixels(50);
+
+        details = (Button) findViewById(R.id.detail_button);
         details.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
