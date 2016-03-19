@@ -167,7 +167,6 @@ public class SearchingFragment extends Fragment {
                         apneBeacon.clear();
 
                         for (int b = 0; b < beacons.size(); b++) {
-                            apneBeacon.add(beacons.get(b));
                             if(com.estimote.sdk.Utils.computeAccuracy(beacons.get(b)) <= 1.00) {
                                 apneBeacon.add(beacons.get(b));
                             }
