@@ -12,7 +12,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import com.codeminator.attndr.attendance.ListBeaconsActivity;
-import com.codeminator.attndr.reports.Person;
 
 public class MainActivity extends AppCompatActivity {
 
