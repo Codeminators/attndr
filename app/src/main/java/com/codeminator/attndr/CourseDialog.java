@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.amulyakhare.textdrawable.TextDrawable;
+import com.codeminator.attndr.reports.SemesterActivity;
 
 /**
  * Created by prempal on 19/3/16.
@@ -40,7 +41,7 @@ public class CourseDialog extends android.support.v4.app.DialogFragment {
             @Override
             public void onClick(View view) {
                 dismiss();
-                startActivity(new Intent(view.getContext(), ReportActivity.class));
+                startActivity(new Intent(view.getContext(), SemesterActivity.class));
             }
         });
         return rootView;

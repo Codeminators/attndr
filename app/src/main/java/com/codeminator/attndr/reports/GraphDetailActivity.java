@@ -65,16 +65,14 @@ public class GraphDetailActivity extends AppCompatActivity {
         hollyViewPager.setConfigurator(new HollyViewPagerConfigurator() {
             @Override
             public float getHeightPercentForPage(int page) {
-                if (page == 0) {
-                    return (5 - presentList.size() / 5) * 100;
-                } else return (presentList.size() / 5) * 100;
+                return ((page + 2) % 10) * 10;
             }
         });
 
         hollyViewPager.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
             @Override
             public Fragment getItem(int position) {
-                return AttendanceListFragment.newInstance(presentList,absentList, position);
+                return AttendanceListFragment.newInstance(presentList, absentList, position);
             }
 
             @Override

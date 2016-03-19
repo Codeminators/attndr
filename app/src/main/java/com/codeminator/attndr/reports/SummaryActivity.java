@@ -64,7 +64,7 @@ public class SummaryActivity extends AppCompatActivity {
             a++;
         b = a*100/5;
         c = 100 -b;
-        String title = c+"% Present \n" + b + "%Absent";
+        String title = b+"% Present \n" + c + "%Absent";
         mChart.setCenterText(title);
         setData(1, 100);
         mChart.setCenterTextSizePixels(50);

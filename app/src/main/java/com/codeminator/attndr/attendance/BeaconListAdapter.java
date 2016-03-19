@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.codeminator.attndr.MainActivity;
 import com.codeminator.attndr.R;
 import com.estimote.sdk.Beacon;
 
@@ -55,40 +54,7 @@ public class BeaconListAdapter extends BaseAdapter {
 
   private void bind(Beacon beacon, View view) {
     ViewHolder holder = (ViewHolder) view.getTag();
-    if(beacon.getMajor() == 57887 && beacon.getMinor() == 7000) {
-      MainActivity.p1.name = "Raghav Apoorv";
-      MainActivity.p1.rollNo = "62";
-      MainActivity.p1.present = true;
 
-      holder.macTextView.setText(String.format("Roll No: %s (%.2fm)", MainActivity.p1.rollNo, com.estimote.sdk.Utils.computeAccuracy(beacon)));
-    }
-    if(beacon.getMajor() == 14718 && beacon.getMinor() == 62967 ) {
-      MainActivity.p2.name = "Prempal Singh";
-      MainActivity.p2.rollNo = "63";
-      MainActivity.p2.present = true;
-      holder.macTextView.setText(String.format("Roll No: %s (%.2fm)", MainActivity.p2.rollNo, com.estimote.sdk.Utils.computeAccuracy(beacon)));
-    }
-    if(beacon.getMajor() == 22686 && beacon.getMinor() == 47279 ) {
-      MainActivity.p3.name = "Naman Dwivedi";
-      MainActivity.p3.rollNo = "64";
-      MainActivity.p3.present = false;
-      holder.macTextView.setText(String.format("Roll No: %s (%.2fm)", MainActivity.p3.rollNo, com.estimote.sdk.Utils.computeAccuracy(beacon)));
-    }
-    if(beacon.getMajor() == 20974 && beacon.getMinor() == 20212) {
-      MainActivity.p4.name = "Shreya Sharma";
-      MainActivity.p4.rollNo = "65";
-      MainActivity.p4.present = false;
-      holder.macTextView.setText(String.format("Roll No: %s (%.2fm)", MainActivity.p4.rollNo, com.estimote.sdk.Utils.computeAccuracy(beacon)));
-    }
-    if(beacon.getMajor() == 59729 && beacon.getMinor() == 58232) {
-
-    }
-    if(beacon.getMajor() == 47633 && beacon.getMinor() == 13930 ) {
-      MainActivity.p5.rollNo = "66";
-      MainActivity.p5.name = "Puja Mathur";
-      MainActivity.p5.present = true;
-      holder.macTextView.setText(String.format("Roll No: %s (%.2fm)", MainActivity.p5.rollNo, com.estimote.sdk.Utils.computeAccuracy(beacon)));
-    }
 
 //    holder.macTextView.setText(String.format("MAC: %s (%.2fm)", beacon.getMacAddress().toStandardString(), Utils.computeAccuracy(beacon)));
     holder.majorTextView.setText("Major: " + beacon.getMajor());

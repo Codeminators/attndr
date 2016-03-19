@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.codeminator.attndr.MainActivity;
 import com.codeminator.attndr.R;
 import com.codeminator.attndr.reports.SummaryActivity;
 import com.estimote.sdk.Beacon;
@@ -174,6 +176,7 @@ public class SearchingFragment extends Fragment {
 
                             if (com.estimote.sdk.Utils.computeAccuracy(beacons.get(b)) <= 1.00) {
                                 apneBeacon.add(beacons.get(b));
+
                             }
                         }
 
@@ -200,7 +203,43 @@ public class SearchingFragment extends Fragment {
                             for (int i = 1; i <= beaconSize; i++) {
                                 foundDevice(i);
                             }
+                            for(int i = 0; i < apneBeacon.size(); i++) {
+                                if(apneBeacon.get(i).getMajor() == 57887 && apneBeacon.get(i).getMinor() == 7000) {
+                                    MainActivity.p1.name = "Raghav Apoorv";
+                                    MainActivity.p1.rollNo = "62";
+                                    MainActivity.p1.present = true;
+                                    Log.d("lol","here");
 
+                                }
+                                if(apneBeacon.get(i).getMajor() == 14718 && apneBeacon.get(i).getMinor() == 62967 ) {
+                                    MainActivity.p2.name = "Prempal Singh";
+                                    MainActivity.p2.rollNo = "63";
+                                    MainActivity.p2.present = true;
+                                    Log.d("lol","here2");
+                                }
+                                if(apneBeacon.get(i).getMajor() == 22686 && apneBeacon.get(i).getMinor() == 47279 ) {
+                                    MainActivity.p3.name = "Naman Dwivedi";
+                                    MainActivity.p3.rollNo = "64";
+                                    MainActivity.p3.present = true;
+                                    Log.d("lol","here3");
+                                }
+                                if(apneBeacon.get(i).getMajor() == 20974 && apneBeacon.get(i).getMinor() == 20212) {
+                                    MainActivity.p4.name = "Shreya Sharma";
+                                    MainActivity.p4.rollNo = "65";
+                                    MainActivity.p4.present = true;
+                                    Log.d("lol","here4");
+                                }
+                                if(apneBeacon.get(i).getMajor() == 59729 && apneBeacon.get(i).getMinor() == 58232) {
+
+                                }
+                                if(apneBeacon.get(i).getMajor() == 47633 && apneBeacon.get(i).getMinor() == 13930 ) {
+                                    MainActivity.p5.rollNo = "66";
+                                    MainActivity.p5.name = "Puja Mathur";
+                                    MainActivity.p5.present = true;
+                                    Log.d("lol","here5");
+                                }
+
+                            }
                             adapter.replaceWith(beacons);
 
                         }

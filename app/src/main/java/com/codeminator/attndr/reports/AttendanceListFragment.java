@@ -136,7 +136,7 @@ public class AttendanceListFragment extends Fragment {
 
         @Override
         public int getItemCount() {
-            return personList.size();
+            return personList.size()+1;
         }
 
         public class ViewHolder extends RecyclerView.ViewHolder {
