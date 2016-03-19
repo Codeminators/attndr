@@ -11,7 +11,6 @@ import android.view.View;
 import android.widget.Button;
 
 import com.codeminator.attndr.attendance.ListBeaconsActivity;
-import com.codeminator.attndr.reports.Person;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -82,4 +81,6 @@ public class MainActivity extends AppCompatActivity {
     }
     public static Person p4 = new Person();
     public static Person p5 = new Person();
+
+
 }
