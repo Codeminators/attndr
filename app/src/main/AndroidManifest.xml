@@ -28,12 +28,12 @@
             android:name=".attendance.ListBeaconsActivity"
             android:label="Present"
             android:screenOrientation="portrait" />
-
         <activity android:name=".ReportActivity" />
         <activity
             android:name=".reports.GraphDetailActivity"
             android:theme="@style/AppThemeNoActionBar" />
-        <activity android:name=".reports.SummaryActivity"></activity>
+        <activity android:name=".reports.SummaryActivity" />
+        <activity android:name=".reports.SemesterActivity"></activity>
     </application>
 
 </manifest>
