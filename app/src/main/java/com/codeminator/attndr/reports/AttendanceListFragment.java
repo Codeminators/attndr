@@ -24,7 +24,7 @@ import java.util.List;
 public class AttendanceListFragment extends Fragment {
 
     RecyclerView recyclerView;
-    List<Person> personList;
+    List<Person> personList = new ArrayList<>();
 
     public static AttendanceListFragment newInstance(ArrayList<Integer> presentList, ArrayList<Integer> absentList, int page) {
         AttendanceListFragment fragment = new AttendanceListFragment();
@@ -123,14 +123,15 @@ public class AttendanceListFragment extends Fragment {
                     view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.content_card_attendance_list, viewGroup, false);
                     break;
             }
-            return new ViewHolder(view) {
-            };
+            return new ViewHolder(view);
         }
 
         @Override
         public void onBindViewHolder(RecyclerAdapter.ViewHolder viewHolder, int i) {
-            viewHolder.name.setText(personList.get(i).name);
-            viewHolder.rollNo.setText(personList.get(i).rollNo);
+            if (i > 0) {
+                viewHolder.name.setText(personList.get(i-1).name);
+                viewHolder.rollNo.setText(personList.get(i-1).rollNo);
+            }
         }
 
         @Override
@@ -145,8 +146,8 @@ public class AttendanceListFragment extends Fragment {
             public ViewHolder(View itemView) {
                 super(itemView);
 
-                name = (TextView) itemView.findViewById(R.id.name);
-                rollNo = (TextView) itemView.findViewById(R.id.rollno);
+                name = (TextView) itemView.findViewById(R.id.student_name);
+                rollNo = (TextView) itemView.findViewById(R.id.student_rollno);
 
             }
         }

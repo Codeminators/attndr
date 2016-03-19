@@ -3,6 +3,7 @@ package com.codeminator.attndr.attendance;
 import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
@@ -16,6 +17,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.codeminator.attndr.R;
+import com.codeminator.attndr.reports.SummaryActivity;
 import com.estimote.sdk.Beacon;
 import com.estimote.sdk.BeaconManager;
 import com.estimote.sdk.Region;
@@ -86,6 +88,7 @@ public class SearchingFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 doAnimation();
+                startActivity(new Intent(getActivity(), SummaryActivity.class));
             }
         });
 
@@ -168,7 +171,7 @@ public class SearchingFragment extends Fragment {
 
                         for (int b = 0; b < beacons.size(); b++) {
                             apneBeacon.add(beacons.get(b));
-                            if(com.estimote.sdk.Utils.computeAccuracy(beacons.get(b)) <= 1.00) {
+                            if (com.estimote.sdk.Utils.computeAccuracy(beacons.get(b)) <= 1.00) {
                                 apneBeacon.add(beacons.get(b));
                             }
                         }
