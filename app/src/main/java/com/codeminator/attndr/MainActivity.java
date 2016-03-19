@@ -12,8 +12,12 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import com.codeminator.attndr.attendance.ListBeaconsActivity;
+import com.codeminator.attndr.reports.Person;
 
 public class MainActivity extends AppCompatActivity {
+
+    public static Person p1 = new Person();
+    public static Person p2 = new Person();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,9 +75,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+    public static Person p3 = new Person();
 
     private void startListBeaconsActivity() {
         Intent intent = new Intent(MainActivity.this, ListBeaconsActivity.class);
         startActivity(intent);
     }
+    public static Person p4 = new Person();
+    public static Person p5 = new Person();
 }
