@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.codeminator.attndr.R;
 import com.estimote.sdk.Beacon;
+import com.estimote.sdk.Utils;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -57,6 +58,9 @@ public class BeaconListAdapter extends BaseAdapter {
 
 
 //    holder.macTextView.setText(String.format("MAC: %s (%.2fm)", beacon.getMacAddress().toStandardString(), Utils.computeAccuracy(beacon)));
+    holder.macTextView.setText(String.format("MAC: %s (%.2fm)", beacon.getMacAddress().toStandardString(), Utils.computeAccuracy(beacon)));
+    holder.measuredPowerTextView.setText("MPower: " + beacon.getMeasuredPower());
+    holder.rssiTextView.setText("RSSI: " + beacon.getRssi());
     holder.majorTextView.setText("Major: " + beacon.getMajor());
     holder.minorTextView.setText("Minor: " + beacon.getMinor());
 //    holder.measuredPowerTextView.setText("MPower: " + beacon.getMeasuredPower());

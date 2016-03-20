@@ -9,7 +9,9 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
+import android.widget.Switch;
 
 import com.codeminator.attndr.attendance.ListBeaconsActivity;
 
@@ -17,11 +19,21 @@ public class MainActivity extends AppCompatActivity {
 
     public static Person p1 = new Person();
     public static Person p2 = new Person();
-
+    public static boolean laav = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Switch s = (Switch) findViewById(R.id.switch1);
+
+        s.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                // do something, the isChecked will be
+                // true if the switch is in the On position
+                laav = isChecked;
+            }
+        });
 
 //        startListBeaconsActivity(DistanceBeaconActivity.class.getName());
 //        Intent intent = new Intent(MainActivity.this, SummaryActivity.class);

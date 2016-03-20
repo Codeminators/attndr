@@ -96,8 +96,8 @@ public class SummaryActivity extends AppCompatActivity {
 
         ArrayList<Entry> yVals1 = new ArrayList<Entry>();
 
-        mParties.add("Absent");
         mParties.add("Present");
+        mParties.add("Absent");
 
         for (int i = 0; i < count + 1; i++) {
 
@@ -127,22 +127,11 @@ public class SummaryActivity extends AppCompatActivity {
 
         ArrayList<Integer> colors = new ArrayList<Integer>();
 
-        for (int c : ColorTemplate.VORDIPLOM_COLORS)
-            colors.add(c);
-
-        for (int c : ColorTemplate.JOYFUL_COLORS)
-            colors.add(c);
-
         for (int c : ColorTemplate.COLORFUL_COLORS)
             colors.add(c);
 
         for (int c : ColorTemplate.LIBERTY_COLORS)
             colors.add(c);
-
-        for (int c : ColorTemplate.PASTEL_COLORS)
-            colors.add(c);
-
-        colors.add(ColorTemplate.getHoloBlue());
 
         dataSet.setColors(colors);
         //dataSet.setSelectionShift(0f);

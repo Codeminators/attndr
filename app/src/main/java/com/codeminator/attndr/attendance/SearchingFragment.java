@@ -4,6 +4,9 @@ import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.content.Intent;
+import android.media.Ringtone;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
@@ -91,6 +94,19 @@ public class SearchingFragment extends Fragment {
             public void onClick(View v) {
                 doAnimation();
                 startActivity(new Intent(getActivity(), SummaryActivity.class));
+                if(MainActivity.laav == true) {
+                    if (apneBeacon.size() < 5) {
+                        //TODO play a song
+                        Log.d("SONG", "IS PLAYING A SONG");
+                        try {
+                            Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_RINGTONE);
+                            Ringtone r = RingtoneManager.getRingtone(getActivity(), notification);
+                            r.play();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
             }
         });
 
@@ -238,6 +254,7 @@ public class SearchingFragment extends Fragment {
                                     MainActivity.p5.present = true;
                                     Log.d("lol","here5");
                                 }
+
 
                             }
                             adapter.replaceWith(beacons);
